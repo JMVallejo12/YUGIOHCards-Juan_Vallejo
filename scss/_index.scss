@@ -15,7 +15,10 @@
 
 .section-1{
 
-    padding-top: 8rem;
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .red-eyes-container{
         display: flex;
@@ -35,12 +38,88 @@
         flex-direction: column;
         align-items: center;
 
+        // background-color: map-get($colores, color-azul-1 );
+        width: fit-content;
+        padding: 2rem;
+        border-radius: 25px;
+
         .h1-index{
 
             font-family: map-get($fuentes, fuente-principal );
-            font-size: 36px;
+            font-size: 66px;
+            color: map-get($colores, color-principal );
+
+            border-bottom: 5px solid map-get($colores, color-principal );
         }
+
+
+        .p-title{
+
+            font-family: map-get($fuentes, fuente-roboto-mono );
+            font-size: larger;
+            color: map-get($colores, color-blanco );
+            margin-top: 1rem;
+
+        }
+
+
     }
 
+
+}
+
+// programando el section 2
+
+
+.section-2{
+
+    margin-top: 7rem;
+
+    display: flex;
+    justify-content: center;
+
+
+
+
+    .article-info{
+
+        border: 3px solid black;
+
+        width: 50%;
+        background-color: map-get($colores, color-blanco-transparente );
+        padding: 2rem;
+
+        .h2-info{
+
+            font-family: map-get($fuentes, fuente-principal );
+            font-size: 36px;
+            color: map-get($colores, color-rojo );
+
+            text-align: center;
+            
+
+
+        }
+
+        .h3-info{
+
+            color: map-get($colores, color-rojo );
+            font-family: map-get($fuentes, fuente-roboto-mono );
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            
+
+        }
+
+        .p-info{
+
+            font-family: map-get($fuentes, fuente-poppins );
+            
+
+        }
+
+
+
+    }
 
 }

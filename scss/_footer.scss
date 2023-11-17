@@ -1,0 +1,49 @@
+.footer{
+
+    height: 50px;
+    background-color: map-get($colores, color-principal );
+
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .ul-footer-l{
+        display: flex;
+        
+        align-items: center;
+        height: 50px;
+        padding-top: 10px;
+
+        list-style: none;
+        
+
+        .li-footer-btn{
+            margin-right: 1rem;
+            color: map-get($colores, color-blanco );
+        }
+
+        .li-footer-copy{
+            color: map-get($colores, color-blanco );
+        }
+
+    }
+
+    .ul-footer-r{
+
+        display: flex;
+
+        list-style: none;
+        padding-top: 20px;
+
+        .li-social{
+
+            margin-right: 3rem;
+            color: map-get($colores, color-blanco );
+            
+            
+        }
+
+    }
+}

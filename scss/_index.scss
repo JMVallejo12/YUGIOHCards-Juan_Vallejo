@@ -74,6 +74,7 @@
 .section-2{
 
     margin-top: 7rem;
+    margin-bottom: 5rem;
 
     display: flex;
     justify-content: center;
@@ -83,11 +84,12 @@
 
     .article-info{
 
-        border: 3px solid black;
+        
 
         width: 50%;
         background-color: map-get($colores, color-blanco-transparente );
         padding: 2rem;
+        border-radius: 20px;
 
         .h2-info{
 

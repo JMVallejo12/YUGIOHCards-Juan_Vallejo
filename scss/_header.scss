@@ -14,7 +14,7 @@
             display: flex;
             list-style: none;
             height: 50px;
-            border: 1px solid black;
+            
             width: 50%;
 
             align-items: center;
@@ -24,6 +24,18 @@
                 font-family: map-get($fuentes , fuente-principal );
                 text-decoration: none;
                 color: map-get($colores, color-blanco );
+
+            }
+
+            .li-search{
+
+                height:25px;
+                width: 260px;
+                padding-left: 0.3rem;
+                border-radius: 5px;
+                border: none;
+                font-family: map-get($fuentes , fuente-roboto-flex );
+                
 
             }
 

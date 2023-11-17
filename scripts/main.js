@@ -268,7 +268,10 @@ function ingresar_nombre(){
 
 ingresar_nombre()
 
-// haciendo un bucle para usar el sistema hasta que me muera
+// descomentar esta linea de codigo, si se quiere hacer un bucle constante, pero no se va a ver la pagina hecha
+// si se usa en bucle constante es mejor, ya que como no hay permanencia, todo vuelve al valor inicial
+// es mejor usarlo en bucle ya que asi se pueden crear cartas y borrarlas, borrar anteriores y ver la lista
+
 // while (1 !== 0){
 
 //     menu()

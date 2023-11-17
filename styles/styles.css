@@ -48,6 +48,10 @@
   padding: 0.5rem;
   font-family: "Poppins", sans-serif;
   color: #F8FFF4;
+  transition: 0.2s;
+}
+.header .nav-bar .ul-nav .nav-item:hover {
+  border-bottom: 2px solid #F8FFF4;
 }
 
 .footer {

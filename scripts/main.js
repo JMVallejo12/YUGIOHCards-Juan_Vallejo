@@ -1,3 +1,36 @@
+// agregando todas las id del documento
+const nombreagregar = document.getElementById("nombre-agregar")
+const ataqueagregar = document.getElementById("ataque-agregar")
+const defensaagregar = document.getElementById("defens-agreagr")
+const atributoagregar = document.getElementById("atributo-agregar")
+const btnagergar = document.getElementById("btn-agregar")
+
+
+// haciendo los eventos
+
+
+
+
+function agregar_carta(){
+
+    // pedir los datos de la carta para crear el objeto
+
+    let nombre = prompt("ingresa el nombre de la carta:")
+    let ataque = prompt("ingresa el ataque de la carta:")
+    let defensa = prompt("ingresa la defensa de la carta")
+    let atributo = prompt("ingresa el atributo de la carta")
+
+
+    // Lista con los datos de la carta
+
+    let carta_datos = [nombre, ataque, defensa, atributo]
+    
+    return carta_datos
+
+
+
+
+}
 
 
 // lista de cartas
@@ -94,28 +127,10 @@ carta.prototype.exito = function(){
 }
 
 
-// funcion para agregar una carta
-
-function agregar_carta(){
-
-    // pedir los datos de la carta para crear el objeto
-
-    let nombre = prompt("ingresa el nombre de la carta:")
-    let ataque = prompt("ingresa el ataque de la carta:")
-    let defensa = prompt("ingresa la defensa de la carta")
-    let atributo = prompt("ingresa el atributo de la carta")
-
-
-    // Lista con los datos de la carta
-
-    let carta_datos = [nombre, ataque, defensa, atributo]
-    
-    return carta_datos
 
 
 
 
-}
 
 
 
@@ -249,24 +264,11 @@ function menu(){
     
 
 }
-// funcion para ingresar el nombre
-
-function ingresar_nombre(){
-
-
-    let nombre = prompt("Ingresa tu nombre por favor")
-
-    console.log("Hola " + nombre+", bienvendio al sistema de control de stock de la tienda de cartas de Yu-gi-oh!")
-    console.log("Ahora te daremos algunas operaciones que puedes realizar para el control")
-    
-
-
-}
 
 
 
 
-ingresar_nombre()
+
 
 // descomentar esta linea de codigo, si se quiere hacer un bucle constante, pero no se va a ver la pagina hecha
 // si se usa en bucle constante es mejor, ya que como no hay permanencia, todo vuelve al valor inicial
@@ -278,4 +280,4 @@ ingresar_nombre()
 // }
 
 
-menu()
+// menu()

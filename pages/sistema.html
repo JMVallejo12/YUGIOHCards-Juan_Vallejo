@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Flex:opsz@8..144&family=Roboto+Mono&family=Young+Serif&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>YUGICARDS! - Tu tienda preferida de cartas de Yu Gi Oh!</title>
+</head>
+<body class="bg-color">
+    
+    <!-- barra de navegacion -->
+    <header class="header">
+        <nav class="nav-bar">
+
+            <!-- Boton de inicio y formulario de busqueda -->
+
+            <ul class="ul-home">
+                <li >
+                    <a href="" class="li-home">INICIO</a>
+                </li>
+                <li ><input class="li-search" type="text" id="busqueda" name="q" placeholder="Ingrese la carta que desea buscar..."></li>
+            </ul>
+
+            <!-- botones de navegacion -->
+
+            <ul class="ul-nav">
+                <li><a class="nav-item" href="">Cartas</a></li>
+                <li><a class="nav-item" href="">Ayuda</a></li>
+                <li><a class="nav-item" href="">Sistema</a></li>
+                
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <section class="forms">
+
+        <div class="title-form">
+
+            <!-- Formularo de ingreso de cartas -->
+
+            <h1 class="forms">FORMULARIOS</h1>
+
+    
+        </div>
+
+        <articl class="article-forms">
+
+            <div class="sub-title-container">
+                <!-- Formulario de ingreso nuevo de cartas -->
+
+                <h2 class="form">Formulario para ingresar una carta nueva</h2>
+            </div>
+
+            <form class="carta-agregar-form" id="carta=form">
+                <label for="nombre-agregar">Nombre:</label>
+                <input type="text" id="nombre-agregar" name="nombre" required>
+        
+                <label for="ataque">Ataque:</label>
+                <input type="number" id="ataque-agregar" name="ataque" required>
+        
+                <label for="defensa">Defensa:</label>
+                <input type="number" id="defensa-agregar" name="defensa" required>
+        
+                <label for="atributo">Atributo:</label>
+                <input type="text" id="atributo-agregar" name="atributo" required>
+        
+                <button type="button" id="btn-agregar">Agregar Carta</button>
+            </form>
+
+        </article>
+
+
+    </section>
+
+
+    
+
+
+
+
+<script src="../scripts/main.js"></script>
+</body>
+</html>

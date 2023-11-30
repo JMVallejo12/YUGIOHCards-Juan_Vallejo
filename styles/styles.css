@@ -155,4 +155,19 @@
   font-family: "Poppins", sans-serif;
 }
 
+.forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.forms .article-forms {
+  width: 35%;
+  background-color: #1C5D99;
+  padding: 2rem;
+}
+.forms .article-forms .carta-agregar-form {
+  display: flex;
+  flex-direction: column;
+}
+
 /*# sourceMappingURL=styles.css.map */

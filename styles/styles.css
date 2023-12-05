@@ -162,12 +162,24 @@
 }
 .forms .article-forms {
   width: 35%;
-  background-color: #1C5D99;
+  background-color: white;
   padding: 2rem;
 }
 .forms .article-forms .carta-agregar-form {
   display: flex;
   flex-direction: column;
+}
+.forms .article-buscar {
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem;
+}
+.forms .article-buscar .resultado-busqueda {
+  margin-top: 2rem;
+}
+.forms .article-eliminar {
+  background-color: white;
+  padding: 2rem;
 }
 
 /*# sourceMappingURL=styles.css.map */

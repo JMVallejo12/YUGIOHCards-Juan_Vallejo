@@ -49,7 +49,7 @@
     
         </div>
 
-        <articl class="article-forms">
+        <article class="article-forms">
 
             <div class="sub-title-container">
                 <!-- Formulario de ingreso nuevo de cartas -->
@@ -57,7 +57,7 @@
                 <h2 class="form">Formulario para ingresar una carta nueva</h2>
             </div>
 
-            <form class="carta-agregar-form" id="carta=form">
+            <form class="carta-agregar-form">
                 <label for="nombre-agregar">Nombre:</label>
                 <input type="text" id="nombre-agregar" name="nombre" required>
         
@@ -73,8 +73,55 @@
                 <button type="button" id="btn-agregar">Agregar Carta</button>
             </form>
 
+
         </article>
 
+        <!-- formulario de busqueda -->
+
+        <article class="article-buscar">
+
+            <div class="buscar-title-container">
+                <h2 class="h2-buscar">Formulario para buscar</h2>
+            </div>
+
+            <form class="carta-buscar-form" id="carta-buscar">
+                <label for="nombre-buscar">Nombre:</label>
+                <input type="text" id="nombre-buscar" name="nombre" required>
+            
+                <button type="button" id="btn-buscar">Buscar</button>
+            </form>
+
+            <div class="resultado-busqueda" id="resultado-busqueda">
+
+               
+
+            </div>
+            
+
+        </article>
+
+
+        <!-- formulario para eliminar una carta -->
+        <article class="article-eliminar">
+
+            <div class="title-eliminar-container">
+                <h2 class="h2-eliminar">Formulario para eliminar</h2>
+            </div>
+
+            <form>
+                <label>Nombre de la Carta:</label>
+                <input type="text" id="nombre-eliminar" required>
+                <button type="button" id="btn-eliminar">Eliminar</button>
+            </form>
+
+            <div class="resultado-eliminar-container" id="resultado-eliminar">
+                
+
+                
+
+            </div>
+        </article>
+        
 
     </section>
 

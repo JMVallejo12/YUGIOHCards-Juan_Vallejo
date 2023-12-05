@@ -1,73 +1,106 @@
 // agregando todas las id del documento
+
+// la parte de agregar
 const nombreagregar = document.getElementById("nombre-agregar")
 const ataqueagregar = document.getElementById("ataque-agregar")
-const defensaagregar = document.getElementById("defens-agreagr")
+const defensaagregar = document.getElementById("defensa-agregar")
 const atributoagregar = document.getElementById("atributo-agregar")
 const btnagergar = document.getElementById("btn-agregar")
 
 
+// elementos de buscar
+const nombrebuscar = document.getElementById("nombre-buscar")
+const btnbuscar = document.getElementById("btn-buscar")
+const resultadobusqueda = document.getElementById("resultado-busqueda")
+
+
+// elementos de eliminar
+const btneliminar = document.getElementById("btn-eliminar")
+const nombreeliminar = document.getElementById("nombre-eliminar")
+const resultadoeliminar = document.getElementById("resultado-eliminar")
+
 // haciendo los eventos
+btnagergar.addEventListener('click', agregar_carta)
+btnbuscar.addEventListener('click', function(){
+
+    buscar_carta(nombrebuscar.value)
 
 
+})
+
+btneliminar.addEventListener('click', function(){
+
+    borrar_carta(nombreeliminar.value)
+})
 
 
 function agregar_carta(){
 
-    // pedir los datos de la carta para crear el objeto
+    // creando el objeto de nuestra carta
 
-    let nombre = prompt("ingresa el nombre de la carta:")
-    let ataque = prompt("ingresa el ataque de la carta:")
-    let defensa = prompt("ingresa la defensa de la carta")
-    let atributo = prompt("ingresa el atributo de la carta")
+    const nueva_carta = {
 
+        nombre: nombreagregar.value,
+        ataque: ataqueagregar.value,
+        defensa: defensaagregar.value,
+        atributo: atributoagregar.value
 
-    // Lista con los datos de la carta
-
-    let carta_datos = [nombre, ataque, defensa, atributo]
-    
-    return carta_datos
+    }
 
 
+
+
+    // guardando la carta en local storage
+    let carta_str = JSON.stringify(nueva_carta)
+    localStorage.setItem(nueva_carta.nombre, carta_str) 
+ 
 
 
 }
 
 
-// lista de cartas
 
 
-let lista_cartas_bd = [
-
-    {nombre: 'Lagarto con espada', ataque: '1200', defensa: '900', atributo: 'tierra'},
-    {nombre: 'Dragon Alado de Ra', ataque: '???', defensa: '???', atributo: 'bestia divina'},
-    {nombre: 'El Discipulo de Ra', ataque: '1100', defensa: '500', atributo: 'luz'},
-
-
-]
 
 
 // funcion para filtrar una busqueda
 
 function buscar_carta(nombre_carta){
 
-    // se pasan todos los caracteres a lower para ue no haya problemas en la busqueda
-    const carta_resultado = lista_cartas_bd.filter(carta => carta.nombre.toLocaleLowerCase() === nombre_carta.toLocaleLowerCase())
+    // se busca la carta en el local storage
 
-    // como nos devuelve un array se verifica el largo del array
+    resultado = localStorage.getItem(nombre_carta)
 
-    if (carta_resultado.length > 0){
-        // si el resultado de la busqueda devuelve mas de un elemento quiere decir que se encontro al menos un resultado
 
-        console.log("El resultado de la busqueda es: ", carta_resultado)
+    
 
+    if (resultado){
+
+
+        resultado_objeto = JSON.parse(resultado)
+    
+
+        resultadobusqueda.innerHTML = `
+                        <ul>
+                            <li>Nombre: ${resultado_objeto.nombre}</li>
+                            <li>Ataque: ${resultado_objeto.ataque}</li>
+                            <li>Defensa: ${resultado_objeto.defensa}</li>
+                            <li>Atributo: ${resultado_objeto.atributo}</li>
+                        </ul>
+                `
 
 
     }else{
 
-        console.log("No hay ningun resultado que coincida con tu busqueda")
-
+        resultadobusqueda.innerHTML = `
+                No se encontro ningun resultado
+        
+        `
 
     }
+
+    
+
 
 
 }
@@ -77,182 +110,45 @@ function buscar_carta(nombre_carta){
 
 function borrar_carta(nombre){
 
-    // encontrando la crta con findindex
-    let index = lista_cartas_bd.findIndex(function(carta){
 
-        // se usa lowercase por si el usuario no escribe el nombre de la carta apropiadamente
-        return carta.nombre.toLocaleLowerCase() === nombre.toLocaleLowerCase()
+    const traerdatos = localStorage.getItem(nombre)
 
+    if (traerdatos) {
 
-    })
-
-    // verificar si se encuentra y eliminarlo
-    if (index !== -1){
-
-        lista_cartas_bd.splice(index,1)
-        console.log("La carta "+nombre+" ha sido eliminada")
         
-        
+
+        const datos_obj = JSON.parse(traerdatos)
+
+        resultadoeliminar.innerHTML = ` 
+
+                        <h3>Se ha eliminado a:</h3>
+
+                        <ul>
+                            <li>Nombre: ${datos_obj.nombre}</li>
+                            <li>Ataque: ${datos_obj.ataque}</li>
+                            <li>Defensa: ${datos_obj.defensa}</li>
+                            <li>Atributo: ${datos_obj.atributo}</li>
+                        </ul>
+    
+    `
+
+
+
+    
+
+
+    // removiendo el item del local storage
+
+    const eliminar = localStorage.removeItem(nombre)
+
+
     }else{
 
-        console.log("La carta que buscas no ha sido encontrada")
 
-    }
-
-}
-
-
-
-// Objetos de las cartas
-
-
-function carta(nombre,ataque, defensa, atributo){
-
-    this.nombre = nombre
-    this.ataque = ataque
-    this.defensa = defensa
-    this.atributo = atributo
-
-
-
-
-}
-
-// agregando metodo a mi objeto carta
-
-carta.prototype.exito = function(){
-
-    console.log("La carta "+this.nombre+" se ha creado con exito")
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-// funcion para mostrar el menu
-
-function menu(){
-
-    opcion = prompt("1- Agregar una carta | 2- Restar una carta | 3- Mostrar todas las cartas | 4- Buscar una carta")
-
-
-    switch (opcion){
-
-        // programando la primer opcion
-
-        case "1":
-            // ejecutar funcion para agregar
-        let datos_carta = agregar_carta()
-
-
-        // verificando en la consola si se guardan los datos de la carta
+        resultadoeliminar.innerHTML = `
+            <p>No se encontro ningun resultado</p>
         
-        for (var x = 0; x < datos_carta.length; x++ ){
-
-            console.log(datos_carta[x])
-
-        }
-
-        // creando nueva carta
-
-        let nueva_carta = new carta (datos_carta[0], datos_carta[1], datos_carta[2], datos_carta[3])
-
-        // avisando que la carta se creo correctamente
-
-        nueva_carta.exito()
-
-
-
-        // agregando la carta a la lista
-        lista_cartas_bd.push(nueva_carta)
-
-        
-
-        // mostrando la lista de cartas
-
-        for (var x = 0; x < lista_cartas_bd.length; x++){
-
-            console.log(lista_cartas_bd[x])
-
-            
-
-        }
-
-        break;
-
-        // segunda opcion en el menu para eliminar una carta
-
-        case "2": 
-
-            // recibiendo por input el nombre de la carta a eliminar
-            let nombre_eliminar = prompt("Escribe el nombre de la carta que quieres borrar:")
-
-            // llamando a la funcion para borrar la carta
-            borrar_carta(nombre_eliminar)
-
-
-            // imprimiendo la lista de cartas nuevamente en la consola
-
-            for (var x = 0; x < lista_cartas_bd.length; x++){
-
-                console.log(lista_cartas_bd[x])
-
-                
-
-            }
-
-
-            break;
-
-            // opcion para visualizar la lista de las cartas
-
-            case "3":
-                
-            
-            console.log("Lista de cartas en el sistema:")
-
-
-            for (var x = 0; x < lista_cartas_bd.length; x++){
-
-                
-                console.log(lista_cartas_bd[x])
-
-                
-
-            }   
-
-                break;
-
-
-            // Haciendo la opcion para buscar una carta especifica 
-            case "4":
-
-                // pidiendo por prompt el nombre de la carta que se desea buscar
-
-                let nombre_buscar = prompt("Ingrese el nombre de la carta que desea buscar:")
-
-                // ejecutando la funcion de buscar la carta con el nombre solcitado al usuario
-
-                buscar_carta(nombre_buscar)
-
-
-
-                break;
-
-
-            default:
-                console.log("La opcion elegida no es correcta")
-
-
-
+        `
 
     }
 
@@ -261,7 +157,7 @@ function menu(){
 
 
 
-    
+
 
 }
 
@@ -270,14 +166,10 @@ function menu(){
 
 
 
-// descomentar esta linea de codigo, si se quiere hacer un bucle constante, pero no se va a ver la pagina hecha
-// si se usa en bucle constante es mejor, ya que como no hay permanencia, todo vuelve al valor inicial
-// es mejor usarlo en bucle ya que asi se pueden crear cartas y borrarlas, borrar anteriores y ver la lista
-
-// while (1 !== 0){
-
-//     menu()
-// }
 
 
-// menu()
+
+
+
+
+

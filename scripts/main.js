@@ -6,6 +6,7 @@ const ataqueagregar = document.getElementById("ataque-agregar")
 const defensaagregar = document.getElementById("defensa-agregar")
 const atributoagregar = document.getElementById("atributo-agregar")
 const btnagergar = document.getElementById("btn-agregar")
+const resultadoagregar = document.getElementById("resultado-agregar")
 
 
 // elementos de buscar
@@ -54,6 +55,20 @@ function agregar_carta(){
     let carta_str = JSON.stringify(nueva_carta)
     localStorage.setItem(nueva_carta.nombre, carta_str) 
  
+
+
+    // imprimiendo la carta creada para el usuario
+    resultadoagregar.innerHTML = `
+                <h2>Se ha creado a:</h2>
+
+            <ul>
+                <li>Nombre: ${nueva_carta.nombre}</li>
+                <li>Ataque: ${nueva_carta.ataque}</li>
+                <li>Defensa: ${nueva_carta.defensa}</li>
+                <li>Atributo: ${nueva_carta.atributo}</li>
+            </ul>
+    
+    `
 
 
 }
